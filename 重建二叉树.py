@@ -5,31 +5,24 @@
 例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
 '''
 class TreeNode:
-    def __init__(self, x = None):
+    def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-
 class Solution:
-    def reconstruct_binarytree(self, pre, tin):
-        '''
-        重建二叉树
-        '''
-        if not pre and not tin:
+    # 返回构造的TreeNode根节点
+    def reConstructBinaryTree(self, pre, tin):
+        # write code here
+        if pre == 0:
             return None
-        if set(pre) is not set(tin):
-            return None
-        root = TreeNode(pre[0])
-        i = tin.index(pre[0])
-        root.left = self.reconstruct_binarytree(pre[1:i+1], tin[:i])
-        root.right = self.reconstruct_binarytree(pre[i+1:], tin[i+1:])
-        return root
-    
-if __name__=="__mian__":
-    pre = [1,2,4,7,3,5,6,8]
-    tin = [4,7,2,1,5,3,8,6]
-    s = Solution()
-    root = s.reconstruct_binarytree(pre, tin)
+        if tin == 1:
+            return TreeNode(pre[0])
+        else:
+            flag = TreeNode(pre[0])
+            i = tin.index(pre[0])
+            flag.left = self.reConstructBinaryTree(pre[1:i+1], tin[:i])
+            flag.right = self.reConstructBinaryTree(pre[i+1:], tin[i+1:])
+        return flag
 
 
 
