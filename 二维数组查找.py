@@ -21,6 +21,7 @@ class Solution:
         
         row = len(array[1])
         col = len(array[0])
+        print(row)
 
         if type(target) is not int:
             return False
@@ -39,8 +40,16 @@ class Solution:
             else:
                 return True
         return False
+    def Find(self, array, target):
+        if array is None:
+            return error
+        n=len(array)
+        for i in range(n):
+            print(array[i])
+            if target in array[i]:
+                print('ok')
 
 if __name__=="__main__":
     array = [[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]]
     FINDTARGET = Solution()
-    print(FINDTARGET.find(array,19))
+    print(FINDTARGET.Find(array,9))

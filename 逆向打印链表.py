@@ -17,6 +17,15 @@ class Solution:
             l.insert(0, head.val)
             head = head.next
         return l
+
+    def printListFromTailToHead(self, listNode):
+        # write code here
+        ln = []
+        head = listNode
+        while head:
+            ln.insert(0, head.val)
+            head = head.next
+        return ln
         
 if __name__=="__main__":
     node1 = LNode(10)
@@ -27,4 +36,6 @@ if __name__=="__main__":
 
     s = Solution()
     print(s.printlistnode(node1))
+    print(s.printListFromTailToHead(node1))
+
     
